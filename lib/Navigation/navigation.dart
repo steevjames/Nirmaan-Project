@@ -31,10 +31,27 @@ class _NavigationBarState extends State<NavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // extendBody: true,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+          //  Container(
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.only(
+          //         topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+          //     boxShadow: [
+          //       BoxShadow(color: Colors.black26, spreadRadius: 0, blurRadius: 5),
+          //     ],
+          //   ),
+          //   child: ClipRRect(
+          //     borderRadius: BorderRadius.only(
+          //       topLeft: Radius.circular(30.0),
+          //       topRight: Radius.circular(30.0),
+          //     ),
+          //     child:
+
+          BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -54,11 +71,13 @@ class _NavigationBarState extends State<NavigationBar> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.green,
+        selectedItemColor: Color.fromRGBO(5, 55, 68, 1),
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         onTap: _onItemTapped,
       ),
+      //   ),
+      // ),
     );
   }
 }
