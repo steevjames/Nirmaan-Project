@@ -120,6 +120,7 @@ class SignInDemoState extends State<SignInDemo> {
         children: <Widget>[
           const Text("You are not currently signed in."),
           RaisedButton(
+            color: Colors.lightGreen,
             child: const Text('SIGN IN'),
             onPressed: _handleSignIn,
           ),
@@ -131,12 +132,37 @@ class SignInDemoState extends State<SignInDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Google Sign In'),
+      body: Container(
+        color: Colors.greenAccent,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: MediaQuery.of(context).size.height / 6,
+                child: Image(
+                  image: AssetImage("assets/abc.png"),
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                "Welcome",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(height: 40),
+              ButtonTheme(
+                minWidth: MediaQuery.of(context).size.width / 2,
+                child: _buildBody(),
+              ),
+            ],
+          ),
         ),
-        body: ConstrainedBox(
-          constraints: const BoxConstraints.expand(),
-          child: _buildBody(),
-        ));
+      ),
+    );
   }
 }
