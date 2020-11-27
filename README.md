@@ -5,6 +5,6 @@ A new Flutter project.
 ## Getting Started
 
 #Introduction
-    - [ ] UI
-    - [x] Fill text
-    - [ ] Add images
+   - [ ] UI
+   - [x] Fill text
+   - [ ] Add images
