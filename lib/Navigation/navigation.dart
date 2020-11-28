@@ -1,4 +1,6 @@
 import 'package:carbonfootprint/Homepage/homepage.dart';
+import 'package:carbonfootprint/Suggestions/improve.dart';
+import 'package:carbonfootprint/Leaderboard/leaderboard.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBar extends StatefulWidget {
@@ -9,15 +11,11 @@ class NavigationBar extends StatefulWidget {
 class _NavigationBarState extends State<NavigationBar> {
   int _selectedIndex = 0;
 
-// Replace here to change page linked to bottom nav
+// Replace here to change pages linked to bottom nav
   static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text(
-      'Improve',
-    ),
-    Text(
-      'Leaderboard',
-    ),
+    SuggestionsPage(),
+    Leaderboard(),
     Text(
       'Settings',
     ),
@@ -35,6 +33,7 @@ class _NavigationBarState extends State<NavigationBar> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -42,7 +41,7 @@ class _NavigationBarState extends State<NavigationBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.self_improvement),
-            label: 'Improve',
+            label: 'Suggestions',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.leaderboard),
@@ -54,6 +53,8 @@ class _NavigationBarState extends State<NavigationBar> {
           ),
         ],
         currentIndex: _selectedIndex,
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
         selectedItemColor: Color.fromRGBO(5, 55, 68, 1),
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
