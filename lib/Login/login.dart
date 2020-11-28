@@ -141,7 +141,7 @@ class SignInDemoState extends State<SignInDemo> {
               Container(
                 height: MediaQuery.of(context).size.height / 6,
                 child: Image(
-                  image: AssetImage("assets/abc.png"),
+                  image: AssetImage("one.jpeg"),
                   fit: BoxFit.contain,
                 ),
               ),
