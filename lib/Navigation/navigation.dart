@@ -54,6 +54,8 @@ class _NavigationBarState extends State<NavigationBar> {
           ),
         ],
         currentIndex: _selectedIndex,
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
         selectedItemColor: Color.fromRGBO(5, 55, 68, 1),
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,

@@ -1,3 +1,5 @@
+import 'package:carbonfootprint/Components/styling.dart';
+import 'package:carbonfootprint/Components/zeroHeightAppbar.dart';
 import 'package:carbonfootprint/Leaderboard/Components/header.dart';
 import 'package:carbonfootprint/Leaderboard/Components/leaderboardCard.dart';
 import 'package:flutter/material.dart';
@@ -7,26 +9,19 @@ class Leaderboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // Zero height appbar: It avoids status bar
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0.0),
-        child: AppBar(
-          backgroundColor: Color.fromRGBO(5, 55, 68, 1),
-        ),
-      ),
-
+      appBar: zeroHeightAppbar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              color: Color.fromRGBO(5, 55, 68, 1),
+              color: primaryColor,
               child: Leaderboardheader(),
             ),
             Stack(
               children: [
                 Container(
                   height: 30,
-                  color: Color.fromRGBO(5, 55, 68, 1),
+                  color: primaryColor,
                 ),
                 Container(
                   decoration: BoxDecoration(

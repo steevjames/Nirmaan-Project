@@ -1,3 +1,4 @@
+import 'package:carbonfootprint/Components/styling.dart';
 import 'package:flutter/material.dart';
 
 class LeaderboardCard extends StatelessWidget {
@@ -28,7 +29,7 @@ class LeaderboardCard extends StatelessWidget {
             radius: 19,
             child: Text(
               "$rank",
-              style: TextStyle(color: Colors.black54, fontSize: 15),
+              style: TextStyle(color: textColorLight, fontSize: 15),
               textAlign: TextAlign.center,
             ),
           ),
@@ -36,13 +37,13 @@ class LeaderboardCard extends StatelessWidget {
           Expanded(
             child: Text(
               details["name"],
-              style: TextStyle(color: Colors.black54, fontSize: 15),
+              style: TextStyle(color: textColorLight, fontSize: 15),
               textAlign: TextAlign.left,
             ),
           ),
           Text(
             details["points"] + " Points",
-            style: TextStyle(color: Colors.green, fontSize: 14),
+            style: TextStyle(color: lightGreen, fontSize: 14),
             textAlign: TextAlign.center,
           ),
         ],

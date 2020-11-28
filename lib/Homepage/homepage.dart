@@ -1,3 +1,4 @@
+import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Homepage/Components/header.dart';
 import 'package:carbonfootprint/Homepage/Components/piechart.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class HomePage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0.0),
         child: AppBar(
-          backgroundColor: Color.fromRGBO(5, 55, 68, 1),
+          backgroundColor: primaryColor,
         ),
       ),
 
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              color: Color.fromRGBO(5, 55, 68, 1),
+              color: primaryColor,
               child: HomePageHeader(
                 userName: "Steev",
                 carbonFootprint: "694kg",
@@ -28,8 +29,8 @@ class HomePage extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 100,
-                  color: Color.fromRGBO(5, 55, 68, 1),
+                  height: 50,
+                  color: primaryColor,
                 ),
                 Container(
                   decoration: BoxDecoration(

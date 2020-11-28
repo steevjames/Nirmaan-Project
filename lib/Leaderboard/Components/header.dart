@@ -4,17 +4,17 @@ class Leaderboardheader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            height: 15,
+            height: 12,
           ),
           Center(
             child: Text(
               "Leaderboard",
-              style: TextStyle(color: Colors.white, fontSize: 29),
+              style: TextStyle(color: Colors.white, fontSize: 27),
               textAlign: TextAlign.center,
             ),
           ),
