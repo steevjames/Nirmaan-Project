@@ -3,6 +3,8 @@ import 'dart:convert' show json;
 import "package:http/http.dart" as http;
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:carbonfootprint/Components/styling.dart';
 
 GoogleSignIn _googleSignIn = GoogleSignIn(
   scopes: <String>[
@@ -40,7 +42,7 @@ class SignInDemoState extends State<SignInDemo> {
     });
     final http.Response response = await http.get(
       'https://people.googleapis.com/v1/people/me/connections'
-      '?requestMask.includeField=person.names',
+          '?requestMask.includeField=person.names',
       headers: await _currentUser.authHeaders,
     );
     if (response.statusCode != 200) {
@@ -65,12 +67,12 @@ class SignInDemoState extends State<SignInDemo> {
   String _pickFirstNamedContact(Map<String, dynamic> data) {
     final List<dynamic> connections = data['connections'];
     final Map<String, dynamic> contact = connections?.firstWhere(
-      (dynamic contact) => contact['names'] != null,
+          (dynamic contact) => contact['names'] != null,
       orElse: () => null,
     );
     if (contact != null) {
       final Map<String, dynamic> name = contact['names'].firstWhere(
-        (dynamic name) => name['displayName'] != null,
+            (dynamic name) => name['displayName'] != null,
         orElse: () => null,
       );
       if (name != null) {
@@ -119,49 +121,157 @@ class SignInDemoState extends State<SignInDemo> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           const Text("You are not currently signed in."),
-          RaisedButton(
-            color: Colors.lightGreen,
-            child: const Text('SIGN IN'),
-            onPressed: _handleSignIn,
+          Container(
+            margin: EdgeInsets.only(top: 1.0),
+            decoration: new BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              boxShadow: <BoxShadow>[
+//                BoxShadow(
+//                  color: Colors.blue,
+//                  offset: Offset(1.0, 4.0),
+//                  blurRadius: 10.0,
+//                ),
+              ],
+              gradient: new LinearGradient(
+                  colors: [
+                    primaryColor,
+                    Colors.blue,
+                  ],
+                  begin: const FractionalOffset(0.2, 0.2),
+                  end: const FractionalOffset(1.0, 1.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp),
+            ),
+            child: MaterialButton(
+              highlightColor: Colors.transparent,
+              splashColor: primaryColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5.0))),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 42.0),
+                child: Text(
+                  "Sign In",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25.0,
+                      fontFamily: "WorkSansBold"),
+                ),
+              ),
+              onPressed: _handleSignIn,
+            ),
           ),
         ],
       );
     }
   }
 
+  Color left = Colors.black;
+  Color right = Colors.white;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.greenAccent,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height >= 500.0
+            ? MediaQuery.of(context).size.height
+            : 500.0,
+        decoration: new BoxDecoration(
+          gradient: new LinearGradient(
+              colors: [Color.fromRGBO(5, 55, 20, 1), Colors.green],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(1.5, 1.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: 75.0),
+              child: new Image(
+                  width: 250.0,
+                  height: 191.0,
+                  fit: BoxFit.fill,
+                  image: new AssetImage('assets/reuse.png')),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20.0),
+              child: _buildMenuBar(context),
+            ),
+            Expanded(
+              flex: 2,
+              child: PageView(
+                children: <Widget>[
+                  new ConstrainedBox(
+                    constraints: const BoxConstraints.expand(),
+                    child: _buildSignIn(context),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMenuBar(BuildContext context) {
+    return Container(
+      width: 300.0,
+      height: 50.0,
+      decoration: BoxDecoration(
+        color: Color(0x552B2B2B),
+        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+      ),
+      child: Column(
+        children: [
+          CustomPaint(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  child: FlatButton(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    child: Text(
+                      "Welcome to a new journey!",
+                      style: TextStyle(
+                          color: left,
+                          fontSize: 16.0,
+                          fontFamily: "WorkSansSemiBold"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSignIn(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 23.0),
+      child: Column(
+        children: <Widget>[
+          Stack(
+            alignment: Alignment.topCenter,
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height / 6,
-                child: Image(
-                  image: AssetImage("one.jpeg"),
-                  fit: BoxFit.contain,
+                width: 300.0,
+                height: 190.0,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
+                  child: _buildBody(),
                 ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Welcome",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(height: 40),
-              ButtonTheme(
-                minWidth: MediaQuery.of(context).size.width / 2,
-                child: _buildBody(),
               ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
