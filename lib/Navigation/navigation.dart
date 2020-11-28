@@ -1,4 +1,5 @@
 import 'package:carbonfootprint/Homepage/homepage.dart';
+import 'package:carbonfootprint/Leaderboard/leaderboard.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBar extends StatefulWidget {
@@ -15,9 +16,7 @@ class _NavigationBarState extends State<NavigationBar> {
     Text(
       'Improve',
     ),
-    Text(
-      'Leaderboard',
-    ),
+    Leaderboard(),
     Text(
       'Settings',
     ),
@@ -35,6 +34,7 @@ class _NavigationBarState extends State<NavigationBar> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
