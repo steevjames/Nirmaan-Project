@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:carbonfootprint/Login/login.dart';
 
 class OnBoardingPage extends StatefulWidget {
   @override
@@ -37,10 +38,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       key: introKey,
       pages: [
         PageViewModel(
-          title: "Fractional shares",
+          title: "CARBON FOOTPRINT",
           body:
               "Instead of having to buy an entire share, invest any amount you want.",
-          image: _buildImage('img1'),
+          image: _buildImage('one.jpeg'),
           decoration: pageDecoration,
         ),
         PageViewModel(
@@ -115,7 +116,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-      body: const Center(child: Text("This is the screen after Introduction")),
+      body: SignInDemo(),
     );
   }
 }
