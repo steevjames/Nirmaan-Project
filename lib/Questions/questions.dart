@@ -11,6 +11,7 @@ class Question extends StatefulWidget {
 }
 
 class _QuestionState extends State<Question> {
+  // This is the set from which questions are taken.
   List<Map<String, dynamic>> questions = [
     {
       "question": "How would you describe your diet?",
@@ -69,6 +70,7 @@ class _QuestionState extends State<Question> {
   ];
   var totalImpact = 0;
 
+  // Selected index controls which question is selected.
   int selectedIndex = 0;
   int selectedRadio = -1;
 
