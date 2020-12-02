@@ -12,13 +12,6 @@ class HomePageHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            "Hey $userName",
-            style: TextStyle(color: Colors.white, fontSize: 18),
-          ),
-          SizedBox(
-            height: 25,
-          ),
           Center(
             child: Text(
               "Your average monthly carbon footprint is",
