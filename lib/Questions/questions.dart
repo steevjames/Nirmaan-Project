@@ -1,5 +1,9 @@
 import 'package:carbonfootprint/Components/alertDialog.dart';
+import 'package:carbonfootprint/Components/styling.dart';
+import 'package:carbonfootprint/Components/zeroHeightAppbar.dart';
 import 'package:flutter/material.dart';
+
+// Login & UI is mixed, edit carefully
 
 class Question extends StatefulWidget {
   @override
@@ -71,75 +75,148 @@ class _QuestionState extends State<Question> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-              SizedBox(height: 30),
-              Text(
-                questions[selectedIndex]["question"],
-                style: TextStyle(fontSize: 20, color: Colors.black87),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 20),
-              Text(
-                questions[selectedIndex]["description"],
-                style: TextStyle(fontSize: 15, color: Colors.black87),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 20),
-            ] +
-            List.generate(
-              questions[selectedIndex]["options"].length,
-              (index) => RadioListTile(
-                value: index,
-                groupValue: selectedRadio,
-                onChanged: (option) {
-                  setState(() {
-                    selectedRadio = option;
-                  });
-                },
-                title:
-                    Text(questions[selectedIndex]["options"][index]["option"]),
-              ),
-            ) +
-            [
-              SizedBox(height: 20),
-              RaisedButton(
-                child: Text(
-                  selectedIndex == questions.length - 1 ? "Submit" : "Next",
+      backgroundColor: Colors.white,
+      // Zero height appbar: It avoids status bar
+      appBar: zeroHeightAppbar(),
+
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              color: primaryColor,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 25,
+                      child: Text(
+                        (selectedIndex + 1).toString(),
+                      ),
+                    ),
+                    SizedBox(height: 25),
+                    Center(
+                      child: Text(
+                        questions[selectedIndex]["question"],
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
                 ),
-                onPressed: () {
-                  // If last question
-                  if (selectedIndex == questions.length - 1) {
-                    alertDialog(
-                        text: "Total impact is " +
-                            (totalImpact +
-                                    questions[selectedIndex]["options"]
-                                        [selectedRadio]["impact"])
-                                .toString(),
-                        context: context);
-                  }
-                  // If not last question
-                  else {
-                    if (selectedRadio == -1)
-                      alertDialog(text: "Select an option", context: context);
-                    else
-                      setState(() {
-                        totalImpact += questions[selectedIndex]["options"]
-                            [selectedRadio]["impact"];
-                        selectedIndex += 1;
-                        selectedRadio = -1;
-                      });
-                  }
-                },
               ),
-              // RaisedButton(
-              //   child: Text("Show value"),
-              //   onPressed: () {
-              //     print("Impact is $totalImpact");
-              //   },
-              // )
-            ],
+            ),
+            Stack(
+              children: [
+                Container(
+                  height: 50,
+                  color: primaryColor,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(35),
+                      topRight: Radius.circular(35),
+                    ),
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                          SizedBox(height: 30),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 25),
+                            child: Text(
+                              questions[selectedIndex]["description"],
+                              style: TextStyle(
+                                  color: textColorLight, fontSize: 16),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(height: 15),
+                        ] +
+                        List.generate(
+                          questions[selectedIndex]["options"].length,
+                          // Generates list of Radio buttons
+                          (index) => RadioListTile(
+                            dense: true,
+                            value: index,
+                            groupValue: selectedRadio,
+                            onChanged: (option) {
+                              setState(() {
+                                selectedRadio = option;
+                              });
+                            },
+                            title: Text(
+                              questions[selectedIndex]["options"][index]
+                                  ["option"],
+                              style: TextStyle(
+                                color: textColor,
+                                fontSize: 14.5,
+                              ),
+                            ),
+                          ),
+                        ) +
+                        [
+                          SizedBox(height: 20),
+                          RaisedButton(
+                            color: Colors.white,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 50,
+                              vertical: 12,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(
+                                color: primaryColor,
+                              ),
+                            ),
+                            child: Text(
+                              selectedIndex == questions.length - 1
+                                  ? "Submit"
+                                  : "Next",
+                              style: TextStyle(
+                                color: textColor,
+                              ),
+                            ),
+                            onPressed: () {
+                              // If last question
+                              if (selectedIndex == questions.length - 1) {
+                                alertDialog(
+                                    text: "Total impact is " +
+                                        (totalImpact +
+                                                questions[selectedIndex]
+                                                        ["options"]
+                                                    [selectedRadio]["impact"])
+                                            .toString(),
+                                    context: context);
+                              }
+                              // If not last question
+                              else {
+                                if (selectedRadio == -1)
+                                  alertDialog(
+                                      text: "Select an option",
+                                      context: context);
+                                else
+                                  setState(() {
+                                    totalImpact += questions[selectedIndex]
+                                        ["options"][selectedRadio]["impact"];
+                                    selectedIndex += 1;
+                                    selectedRadio = -1;
+                                  });
+                              }
+                            },
+                          ),
+                          SizedBox(height: 30),
+                        ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
