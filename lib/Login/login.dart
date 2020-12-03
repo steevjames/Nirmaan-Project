@@ -4,7 +4,6 @@ import "package:http/http.dart" as http;
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:carbonfootprint/Components/styling.dart';
 import 'animation.dart';
 
 GoogleSignIn _googleSignIn = GoogleSignIn(
@@ -122,10 +121,7 @@ class SignInDemoState extends State<SignInDemo> {
         child: MaterialButton(
           child: Text(
             "Sign In With Google",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 25.0,
-                fontFamily: "WorkSansBold"),
+            style: TextStyle(color: Colors.grey[600], fontSize: 25.0),
           ),
           onPressed: _handleSignIn,
         ),
@@ -136,13 +132,13 @@ class SignInDemoState extends State<SignInDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.lightGreen[100],
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(
             child: Column(
               children: <Widget>[
                 Container(
-                  height: 300,
+                  height: 250,
                   decoration: BoxDecoration(
                       // borderRadius: BorderRadius.all(Radius.circular(30.0)),
                       image: DecorationImage(
@@ -150,7 +146,6 @@ class SignInDemoState extends State<SignInDemo> {
                           fit: BoxFit.fill)),
                   child: Stack(
                     children: <Widget>[
-//
                       Positioned(
                         child: FadeAnimation(
                             1.6,
@@ -174,26 +169,67 @@ class SignInDemoState extends State<SignInDemo> {
                   padding: EdgeInsets.all(30.0),
                   child: Column(
                     children: <Widget>[
-//
+                      FadeAnimation(
+                          2,
+                          Container(
+                            height: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                gradient: LinearGradient(colors: [
+                                  Colors.lightGreen[200],
+                                  Colors.white,
+                                ])),
+                            child: Center(
+                              child: new Image.asset('assets/images/back.jpg'),
+                            ),
+                          )),
+                    ],
+                  ),
+                ),
+                Text(
+                  "Sample Logo!",
+                  style: TextStyle(color: Colors.lightGreen[900]),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(30.0),
+                  child: Column(
+                    children: <Widget>[
+                      Divider(
+                        thickness: 1,
+                        indent: 40,
+                        endIndent: 40,
+                      ),
                       SizedBox(
-                        height: 80,
+                        height: 20,
                       ),
                       FadeAnimation(
                           2,
                           Container(
-                            height: 50,
+                            height: 40,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                gradient: LinearGradient(colors: [
-                                  Colors.lightGreen[900],
-                                  Colors.lightGreen[700],
-
-//                                  Color.fromRGBO(143, 148, 251, 1),
-//                                  Color.fromRGBO(143, 148, 251, .6),
-                                ])),
+                                //boxShadow: ,
+                                color: Colors.white,
+                                boxShadow: [
+                                  new BoxShadow(
+                                    color: Colors.grey[400],
+                                    blurRadius: 10.0,
+                                  ),
+                                ]
+                                //borderRadius: BorderRadius.circular(30),
+                                ),
                             child: Center(
-                              child: _buildBody(),
-//
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      FontAwesomeIcons.google,
+                                      color: Colors.blue[900],
+                                    ),
+                                  ),
+                                  _buildBody(),
+                                ],
+                              ),
                             ),
                           )),
                       SizedBox(
@@ -203,7 +239,7 @@ class SignInDemoState extends State<SignInDemo> {
                           1.5,
                           Text(
                             "You are not currently signed in!",
-                            style: TextStyle(color: Colors.lightGreen[900]),
+                            style: TextStyle(color: Colors.grey[400]),
                           )),
                     ],
                   ),
