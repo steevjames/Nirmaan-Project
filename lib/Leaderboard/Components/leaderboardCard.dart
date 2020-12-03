@@ -9,13 +9,13 @@ class LeaderboardCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-      padding: EdgeInsets.fromLTRB(5, 7, 20, 7),
+      padding: EdgeInsets.fromLTRB(5, 10, 20, 10),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-              blurRadius: 7,
-              spreadRadius: -2,
+              blurRadius: 4,
+              spreadRadius: -1,
               color: Colors.grey,
               offset: Offset(1, 2))
         ],
@@ -25,11 +25,11 @@ class LeaderboardCard extends StatelessWidget {
         children: [
           SizedBox(width: 10),
           CircleAvatar(
-            backgroundColor: Colors.black12,
-            radius: 19,
+            backgroundColor: Color(0xffeeeeee),
+            radius: 18,
             child: Text(
               "$rank",
-              style: TextStyle(color: textColorLight, fontSize: 15),
+              style: TextStyle(color: textColor, fontSize: 15),
               textAlign: TextAlign.center,
             ),
           ),
@@ -37,13 +37,13 @@ class LeaderboardCard extends StatelessWidget {
           Expanded(
             child: Text(
               details["name"],
-              style: TextStyle(color: textColorLight, fontSize: 15),
+              style: TextStyle(color: textColor, fontSize: 15),
               textAlign: TextAlign.left,
             ),
           ),
           Text(
-            details["points"] + " Points",
-            style: TextStyle(color: primaryColor, fontSize: 14),
+            details["points"] + " Kg",
+            style: TextStyle(color: Colors.green[700], fontSize: 13),
             textAlign: TextAlign.center,
           ),
         ],
