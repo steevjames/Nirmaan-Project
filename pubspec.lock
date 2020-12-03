@@ -273,8 +273,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0-nullsafety.1"
-<<<<<<< HEAD
-=======
   supercharged:
     dependency: transitive
     description:
@@ -289,7 +287,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.0"
->>>>>>> 96525f477abd202897f82ec5660ef497bbb61e11
   term_glyph:
     dependency: transitive
     description:
