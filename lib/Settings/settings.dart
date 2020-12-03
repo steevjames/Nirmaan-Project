@@ -62,7 +62,7 @@ class BottomPart extends StatelessWidget {
                   style:
                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
                 ),
-                trailing: Icon(Icons.person),
+                leading: Icon(Icons.person),
               ),
             ),
             Card(
@@ -79,7 +79,7 @@ class BottomPart extends StatelessWidget {
                   style:
                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
                 ),
-                trailing: Icon(Icons.help),
+                leading: Icon(Icons.help),
               ),
             ),
             Card(
@@ -96,7 +96,7 @@ class BottomPart extends StatelessWidget {
                   style:
                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
                 ),
-                trailing: Icon(Icons.edit),
+                leading: Icon(Icons.edit),
               ),
             ),
             Card(
@@ -113,103 +113,10 @@ class BottomPart extends StatelessWidget {
                   style:
                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
                 ),
-                trailing: Icon(Icons.logout),
+                leading: Icon(Icons.logout),
               ),
             ),
           ],
         ));
   }
 }
-
-// class org extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Widget(
-//       // backgroundColor: Colors.white,
-//       // appBar: AppBar(
-//       //   elevation: 0,
-//       //   backgroundColor: Colors.white,
-//       //   title: Text(
-//       //     'Settings',
-//       //     style: TextStyle(color: primaryColor),
-//       //   ),
-//       // ),
-//       body: SingleChildScrollView(
-//         child: Column(
-//           // vertical array of children
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: <Widget>[
-//             Card(
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10.0)),
-//               color: Colors.white,
-//               margin: const EdgeInsets.all(8.0),
-//               child: ListTile(
-//                 onTap: () {
-//                   // to implement
-//                 },
-//                 title: Text(
-//                   'Profile',
-//                   style:
-//                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
-//                 ),
-//                 trailing: Icon(Icons.person),
-//               ),
-//             ),
-//             Card(
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10.0)),
-//               color: Colors.white,
-//               margin: const EdgeInsets.all(8.0),
-//               child: ListTile(
-//                 onTap: () {
-//                   // to implement
-//                 },
-//                 title: Text(
-//                   'About',
-//                   style:
-//                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
-//                 ),
-//                 trailing: Icon(Icons.help),
-//               ),
-//             ),
-//             Card(
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10.0)),
-//               color: Colors.white,
-//               margin: const EdgeInsets.all(8.0),
-//               child: ListTile(
-//                 onTap: () {
-//                   // to implement
-//                 },
-//                 title: Text(
-//                   'Change default',
-//                   style:
-//                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
-//                 ),
-//                 trailing: Icon(Icons.edit),
-//               ),
-//             ),
-//             Card(
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10.0)),
-//               color: Colors.white,
-//               margin: const EdgeInsets.all(8.0),
-//               child: ListTile(
-//                 onTap: () {
-//                   // to implement
-//                 },
-//                 title: Text(
-//                   'Logout',
-//                   style:
-//                       TextStyle(color: textColor, fontWeight: FontWeight.bold),
-//                 ),
-//                 trailing: Icon(Icons.logout),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
