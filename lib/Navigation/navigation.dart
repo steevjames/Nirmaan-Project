@@ -2,6 +2,7 @@ import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Homepage/homepage.dart';
 import 'package:carbonfootprint/Pledges/pledges.dart';
 import 'package:carbonfootprint/Leaderboard/leaderboard.dart';
+import 'package:carbonfootprint/Settings/settings.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBar extends StatefulWidget {
@@ -17,9 +18,7 @@ class _NavigationBarState extends State<NavigationBar> {
     HomePage(),
     Pledges(),
     Leaderboard(),
-    Text(
-      'Settings',
-    ),
+    Settings(),
   ];
   void _onItemTapped(int index) {
     setState(() {
