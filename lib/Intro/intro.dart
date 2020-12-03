@@ -48,7 +48,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Learn as you go",
           body:
               "Download the Stockpile app and master the market with our mini-lesson.",
-          image: _buildImage('img2'),
+          image: _buildImage(''),
           decoration: pageDecoration,
         ),
         PageViewModel(
@@ -61,7 +61,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         PageViewModel(
           title: "Another title page",
           body: "Another beautiful body text for this example onboarding",
-          image: _buildImage('img2'),
+          image: _buildImage(''),
           footer: RaisedButton(
             onPressed: () {
               introKey.currentState?.animateScroll(0);
