@@ -34,8 +34,8 @@ class Pledges extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      "Take up these pledges to reduce your carbon footprint.",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
+                      "Take up these pledges to reduce your \ncarbon footprint.",
+                      style: TextStyle(color: Colors.white, fontSize: 14),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
@@ -70,7 +70,13 @@ class Pledges extends StatelessWidget {
   }
 }
 
-class BottomPart extends StatelessWidget {
+class BottomPart extends StatefulWidget {
+  @override
+  _BottomPartState createState() => _BottomPartState();
+}
+
+class _BottomPartState extends State<BottomPart> {
+  int sliderIndex = 0;
   final List<Map<String, dynamic>> pledges = [
     {
       "heading": "Use less water",
@@ -99,58 +105,74 @@ class BottomPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.fromLTRB(5, 30, 5, 5),
-        child: CarouselSlider(
-          options: CarouselOptions(
-            viewportFraction: .9,
-            height: 370,
-            autoPlay: true,
-            enlargeCenterPage: true,
-          ),
-          items: pledges.map((i) {
-            return Builder(
-              builder: (BuildContext context) {
-                return SingleChildScrollView(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5,
-                          spreadRadius: -5,
-                          color: Colors.black38,
-                          offset: Offset(5, 5),
-                        )
-                      ],
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          i["heading"],
-                          style: TextStyle(color: textColor, fontSize: 19),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 5),
-                        Image(
-                          width: MediaQuery.of(context).size.width * .6,
-                          image: NetworkImage(i["image"]),
-                        ),
-                        SizedBox(height: 15),
-                        Text(
-                          i["description"],
-                          style: TextStyle(fontSize: 14, color: textColorLight),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                pledges.length,
+                (index) => Padding(
+                  padding: EdgeInsets.all(2),
+                  child: CircleAvatar(
+                    radius: 3,
+                    backgroundColor:
+                        index == sliderIndex ? Colors.green : Colors.black12,
                   ),
+                ),
+              ),
+            ),
+            CarouselSlider(
+              options: CarouselOptions(
+                viewportFraction: .9,
+                height: 370,
+                autoPlay: true,
+                enlargeCenterPage: true,
+                onPageChanged: (index, _) {
+                  setState(() {
+                    sliderIndex = index;
+                  });
+                },
+              ),
+              items: pledges.map((i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return SingleChildScrollView(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        padding: EdgeInsets.all(15),
+                        child: Column(
+                          children: [
+                            Text(
+                              i["heading"],
+                              style: TextStyle(color: textColor, fontSize: 19),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 5),
+                            Image(
+                              width: MediaQuery.of(context).size.width * .6,
+                              image: NetworkImage(
+                                i["image"],
+                              ),
+                            ),
+                            SizedBox(height: 15),
+                            Text(
+                              i["description"],
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: textColorLight,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 );
-              },
-            );
-          }).toList(),
+              }).toList(),
+            ),
+          ],
         ));
   }
 }

@@ -35,7 +35,7 @@ class Leaderboard extends StatelessWidget {
                     ),
                     Text(
                       "Here are the top performers of \nthis month",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
+                      style: TextStyle(color: Colors.white, fontSize: 14),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(

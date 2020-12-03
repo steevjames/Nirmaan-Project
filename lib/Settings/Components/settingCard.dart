@@ -19,11 +19,13 @@ class SettingOption extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: Row(
             children: [
-              Icon(icon),
+              Icon(icon, color: textColorLight),
               SizedBox(width: 17),
               Text(
                 optionName ?? "",
-                style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: textColor,
+                ),
               )
             ],
           ),
