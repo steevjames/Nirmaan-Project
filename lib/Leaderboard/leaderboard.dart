@@ -1,6 +1,5 @@
 import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Components/zeroHeightAppbar.dart';
-import 'package:carbonfootprint/Leaderboard/Components/header.dart';
 import 'package:carbonfootprint/Leaderboard/Components/leaderboardCard.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,36 @@ class Leaderboard extends StatelessWidget {
           children: [
             Container(
               color: primaryColor,
-              child: Leaderboardheader(),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Center(
+                      child: Text(
+                        "Leaderboard",
+                        style: TextStyle(color: Colors.white, fontSize: 27),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Here are the top performers of \nthis month",
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                  ],
+                ),
+              ),
             ),
             Stack(
               children: [

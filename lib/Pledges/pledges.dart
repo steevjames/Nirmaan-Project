@@ -1,6 +1,5 @@
 import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Components/zeroHeightAppbar.dart';
-import 'package:carbonfootprint/Pledges/Components/header.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,36 @@ class Pledges extends StatelessWidget {
           children: [
             Container(
               color: primaryColor,
-              child: Pledgesheader(),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                      child: Text(
+                        "Pledges",
+                        style: TextStyle(color: Colors.white, fontSize: 27),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Take up these pledges to reduce your carbon footprint.",
+                      style: TextStyle(color: Colors.white, fontSize: 15),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                  ],
+                ),
+              ),
             ),
             Stack(
               children: [
