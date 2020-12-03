@@ -43,7 +43,7 @@ class LeaderboardCard extends StatelessWidget {
           ),
           Text(
             details["points"] + " Points",
-            style: TextStyle(color: lightGreen, fontSize: 14),
+            style: TextStyle(color: primaryColor, fontSize: 14),
             textAlign: TextAlign.center,
           ),
         ],

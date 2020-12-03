@@ -102,7 +102,7 @@ class BottomPart extends StatelessWidget {
                       children: [
                         Text(
                           i["heading"],
-                          style: TextStyle(color: textColor, fontSize: 19),
+                          style: TextStyle(color: primaryColor, fontSize: 19),
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: 5),
@@ -113,7 +113,7 @@ class BottomPart extends StatelessWidget {
                         SizedBox(height: 15),
                         Text(
                           i["description"],
-                          style: TextStyle(fontSize: 14, color: textColorLight),
+                          style: TextStyle(fontSize: 14, color: primaryColor),
                           textAlign: TextAlign.center,
                         ),
                       ],

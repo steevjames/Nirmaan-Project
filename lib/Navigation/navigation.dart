@@ -1,3 +1,4 @@
+import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Homepage/homepage.dart';
 import 'package:carbonfootprint/Pledges/pledges.dart';
 import 'package:carbonfootprint/Leaderboard/leaderboard.dart';
@@ -55,7 +56,7 @@ class _NavigationBarState extends State<NavigationBar> {
         currentIndex: _selectedIndex,
         selectedFontSize: 12,
         unselectedFontSize: 12,
-        selectedItemColor: Color.fromRGBO(5, 55, 68, 1),
+        selectedItemColor: primaryColor,
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         onTap: _onItemTapped,
