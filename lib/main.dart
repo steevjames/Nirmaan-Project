@@ -1,7 +1,5 @@
 import 'package:carbonfootprint/Navigation/navigation.dart';
-import 'package:carbonfootprint/Questions/questions.dart';
 import 'package:flutter/material.dart';
-import 'package:carbonfootprint/Login/login.dart';
 
 void main() {
   runApp(MyApp());
