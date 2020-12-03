@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 Widget generateFoot(context) {
   List<Map<String, dynamic>> data = [
-    {"name": "Transportation", "value": 5, "color": Colors.greenAccent},
-    {"name": "Cooking", "value": 5, "color": Colors.green},
-    {"name": "Air Travel", "value": 5, "color": Colors.lightGreen},
-    {"name": "Something else", "value": 5, "color": Colors.grey},
+    {"name": "Transportation", "value": 5, "color": Color(0xff8abaae)},
+    {"name": "Cooking", "value": 5, "color": Color(0xff5ca08e)},
+    {"name": "Air Travel", "value": 5, "color": Color(0xff2e856e)},
+    {"name": "Something else", "value": 5, "color": Color(0xff006a4e)},
   ];
 
 // Total value
@@ -34,7 +34,7 @@ Widget generateFoot(context) {
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SizedBox(width: 20),
+        SizedBox(width: MediaQuery.of(context).size.width * .08),
         ShaderMask(
           blendMode: BlendMode.srcIn,
           shaderCallback: (Rect bounds) {
@@ -47,7 +47,7 @@ Widget generateFoot(context) {
             ).createShader(bounds);
           },
           child: Image(
-            width: MediaQuery.of(context).size.width * .3,
+            width: MediaQuery.of(context).size.width * .28,
             image: AssetImage("assets/foot.png"),
           ),
         ),
@@ -71,7 +71,7 @@ Widget generateFoot(context) {
                       children: [
                         Text(
                           data[index]["name"],
-                          style: TextStyle(color: textColor, fontSize: 14),
+                          style: TextStyle(color: textColor, fontSize: 13),
                         ),
                         SizedBox(height: 5),
                         Text(

@@ -22,8 +22,8 @@ class Leaderboardheader extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "Here are the top performers this month",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            "Here are the top performers of \nthis month",
+            style: TextStyle(color: Colors.white, fontSize: 15),
             textAlign: TextAlign.center,
           ),
           SizedBox(

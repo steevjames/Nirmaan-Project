@@ -19,6 +19,7 @@ dependencies:
   intl: ^0.15.8
   font_awesome_flutter: ^8.5.0
   carousel_slider: ^2.3.1
+  avatar_glow: ^1.2.0
 
 
   # The following adds the Cupertino Icons font to your application.

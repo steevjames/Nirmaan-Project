@@ -9,7 +9,7 @@ class Pledgesheader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            height: 15,
+            height: 20,
           ),
           Center(
             child: Text(
@@ -19,7 +19,7 @@ class Pledgesheader extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 15,
+            height: 20,
           ),
           Text(
             "Take up these pledges to reduce your carbon footprint.",
@@ -27,7 +27,7 @@ class Pledgesheader extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 15,
+            height: 30,
           ),
         ],
       ),

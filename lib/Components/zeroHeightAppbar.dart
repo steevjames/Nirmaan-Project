@@ -1,3 +1,4 @@
+import 'package:carbonfootprint/Components/styling.dart';
 import 'package:flutter/material.dart';
 
 zeroHeightAppbar() {
@@ -5,7 +6,7 @@ zeroHeightAppbar() {
   return PreferredSize(
     preferredSize: Size.fromHeight(0.0),
     child: AppBar(
-      backgroundColor: Color.fromRGBO(5, 55, 68, 1),
+      backgroundColor: primaryColor,
     ),
   );
 }
