@@ -1,6 +1,8 @@
 import 'package:carbonfootprint/Components/styling.dart';
+import 'package:carbonfootprint/Components/zeroHeightAppbar.dart';
+import 'package:carbonfootprint/Homepage/Components/foot.dart';
 import 'package:carbonfootprint/Homepage/Components/header.dart';
-import 'package:carbonfootprint/Homepage/Components/piechart.dart';
+import 'package:carbonfootprint/Questions/questions.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,13 +10,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
       // Zero height appbar: It avoids status bar
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0.0),
-        child: AppBar(
-          backgroundColor: primaryColor,
-        ),
-      ),
+      appBar: zeroHeightAppbar(),
 
       body: SingleChildScrollView(
         child: Column(
@@ -59,18 +57,36 @@ class BottomPart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          generateFoot(context),
+          SizedBox(height: 25),
           Center(
-            child: Text(
-              "Your carbon footprint in a nutshell",
-              style: TextStyle(
-                color: Colors.black87,
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
+            child: RaisedButton(
+              child: Text(
+                "Take Questionnare",
+                style: TextStyle(
+                  color: textColor,
+                ),
               ),
-              textAlign: TextAlign.center,
+              color: Colors.white,
+              padding: EdgeInsets.symmetric(
+                horizontal: 50,
+                vertical: 12,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+                side: BorderSide(
+                  color: primaryColor,
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Question()),
+                );
+              },
             ),
           ),
-          HomePagePieChart(),
+          SizedBox(height: 30),
         ],
       ),
     );

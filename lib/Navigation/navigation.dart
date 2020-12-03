@@ -1,5 +1,6 @@
+import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Homepage/homepage.dart';
-import 'package:carbonfootprint/Suggestions/improve.dart';
+import 'package:carbonfootprint/Pledges/pledges.dart';
 import 'package:carbonfootprint/Leaderboard/leaderboard.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class _NavigationBarState extends State<NavigationBar> {
 // Replace here to change pages linked to bottom nav
   static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    SuggestionsPage(),
+    Pledges(),
     Leaderboard(),
     Text(
       'Settings',
@@ -40,8 +41,8 @@ class _NavigationBarState extends State<NavigationBar> {
             label: 'Track',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement),
-            label: 'Suggestions',
+            icon: Icon(Icons.pending_actions),
+            label: 'Pledges',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.leaderboard),
@@ -55,7 +56,7 @@ class _NavigationBarState extends State<NavigationBar> {
         currentIndex: _selectedIndex,
         selectedFontSize: 12,
         unselectedFontSize: 12,
-        selectedItemColor: Color.fromRGBO(5, 55, 68, 1),
+        selectedItemColor: primaryColor,
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         onTap: _onItemTapped,
