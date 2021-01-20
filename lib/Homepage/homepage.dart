@@ -2,7 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Components/zeroHeightAppbar.dart';
 import 'package:carbonfootprint/Homepage/Components/foot.dart';
-import 'package:carbonfootprint/Questions/questions.dart';
+import 'package:carbonfootprint/Questions2/questionnare.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -117,7 +117,7 @@ class BottomPart extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Question()),
+                  MaterialPageRoute(builder: (context) => Questionnare()),
                 );
               },
             ),
