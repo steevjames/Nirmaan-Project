@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:carbonfootprint/Login/login.dart';
+import 'package:carbonfootprint/Homepage/homepage.dart';
 
 class OnBoardingPage extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HomePage()),
+      MaterialPageRoute(builder: (_) => Home()),
     );
   }
 
@@ -111,12 +112,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   }
 }
 
-class HomePage extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-      body: SignInDemo(),
+      body: LoginPage(),
     );
   }
 }
