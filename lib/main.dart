@@ -1,3 +1,4 @@
+import 'package:carbonfootprint/Login/login.dart';
 import 'package:carbonfootprint/Navigation/navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: NavigationBar(),
+      home: LoginPage(),
     );
   }
 }
