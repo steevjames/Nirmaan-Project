@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert' show json;
+import 'package:carbonfootprint/Navigation/navigation.dart';
 import "package:http/http.dart" as http;
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -44,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return HomePage();
+                  return NavigationBar();
                 },
               ),
             );

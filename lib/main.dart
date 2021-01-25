@@ -1,6 +1,8 @@
+import 'package:carbonfootprint/Homepage/homepage.dart';
 import 'package:carbonfootprint/Login/login.dart';
 import 'package:carbonfootprint/Navigation/navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:carbonfootprint/Intro/intro.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: OnBoardingPage(),
     );
   }
 }

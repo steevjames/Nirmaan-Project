@@ -2,6 +2,7 @@ import 'package:carbonfootprint/Settings/Components/settingCard.dart';
 import 'package:flutter/material.dart';
 import 'package:carbonfootprint/Components/styling.dart';
 import 'package:carbonfootprint/Components/zeroHeightAppbar.dart';
+import 'package:carbonfootprint/Login/authentication.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -87,7 +88,9 @@ class BottomPart extends StatelessWidget {
           SettingOption(
             optionName: "Logout",
             icon: Icons.logout,
-            onClick: () {},
+            onClick: () {
+              signOutGoogle();
+            },
           ),
         ],
       ),
