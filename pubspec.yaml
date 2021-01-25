@@ -18,6 +18,8 @@ dependencies:
   http: ^0.12.2
   intl: ^0.15.8
   font_awesome_flutter: ^8.5.0
+  carousel_slider: ^2.3.1
+  avatar_glow: ^1.2.0
   flutter_signin_button: ^1.1.0
 
 
@@ -46,6 +48,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/
   #   - images/a_dot_ham.jpeg
 
 
