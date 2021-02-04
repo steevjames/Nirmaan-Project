@@ -82,22 +82,19 @@ class _BottomPartState extends State<BottomPart> {
       "heading": "Use less water",
       "description":
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-      "image":
-          "https://image.freepik.com/free-vector/tiny-woman-pouring-clean-water-from-faucet-with-mountain-landscape_74855-11024.jpg",
+      "image": "water.jpg",
     },
     {
       "heading": "Reduce wastage of food",
       "description":
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-      "image":
-          "https://image.freepik.com/free-vector/pile-decaying-garbage-left-lying-around_87689-244.jpg",
+      "image": "food.jpg",
     },
     {
       "heading": "Use public transportation",
       "description":
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-      "image":
-          "https://image.freepik.com/free-vector/passengers-waiting-bus-city-queue-town-road-flat-vector-illustration-public-transport-urban-lifestyle_74855-8493.jpg",
+      "image": "bus.jpg",
     },
   ];
 
@@ -151,8 +148,8 @@ class _BottomPartState extends State<BottomPart> {
                             SizedBox(height: 5),
                             Image(
                               width: MediaQuery.of(context).size.width * .6,
-                              image: NetworkImage(
-                                i["image"],
+                              image: AssetImage(
+                                "assets/pledges/" + i["image"],
                               ),
                             ),
                             SizedBox(height: 15),
