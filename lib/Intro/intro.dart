@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:carbonfootprint/Login/login.dart';
-// import 'package:carbonfootprint/Homepage/homepage.dart';
+import 'package:carbonfootprint/Homepage/homepage.dart';
+import 'package:carbonfootprint/Components/styling.dart';
 
 class OnBoardingPage extends StatefulWidget {
   @override
@@ -39,73 +40,152 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       key: introKey,
       pages: [
         PageViewModel(
-          title: "CARBON FOOTPRINT",
+          title: "Carbon Footprint",
           body:
-              "Instead of having to buy an entire share, invest any amount you want.",
-          image: _buildImage('one.jpeg'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Learn as you go",
-          body:
-              "Download the Stockpile app and master the market with our mini-lesson.",
-          image: _buildImage(''),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Kids and teens",
-          body:
-              "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-          image: _buildImage('img3'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Another title page",
-          body: "Another beautiful body text for this example onboarding",
-          image: _buildImage(''),
-          footer: RaisedButton(
-            onPressed: () {
-              introKey.currentState?.animateScroll(0);
-            },
-            child: const Text(
-              'FooButton',
-              style: TextStyle(color: Colors.white),
-            ),
-            color: Colors.lightBlue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
+              "A carbon footprint is the amount of greenhouse gases—primarily carbon dioxide—released into the atmosphere by a particular human activity. ",
+          image: Center(
+              child: Image.asset("assets/images/global.jpg", height: 250.0)),
+
+          //image: _buildImage('assets/images/back'),
+          decoration: const PageDecoration(
+            titleTextStyle: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.black54,
+                fontSize: 30.0,
+                fontStyle: FontStyle.italic),
+            bodyTextStyle: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey,
+                fontStyle: FontStyle.italic),
           ),
-          decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Title of last page",
-          bodyWidget: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Click on ", style: bodyStyle),
-              Icon(Icons.edit),
-              Text(" to edit a post", style: bodyStyle),
-            ],
+          title: "The 3 R's",
+          body:
+              "Reduce, Reuse, Recycle – these three 'R' words are an important part of sustainable living, as they help to cut down on the amount of waste we have to throw away.",
+          image: Center(
+              child: Image.asset("assets/images/planet5.jpg", height: 285.0)),
+          decoration: const PageDecoration(
+            titleTextStyle: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.black54,
+                fontSize: 30.0,
+                fontStyle: FontStyle.italic),
+            bodyTextStyle: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey,
+                fontStyle: FontStyle.italic),
           ),
-          image: _buildImage('img1'),
-          decoration: pageDecoration,
         ),
+        PageViewModel(
+          title: "Reduce",
+          body: "Reduce the amount of materials and goods you consume.",
+          image: Center(
+              child: Image.asset("assets/images/planet1.jpg", height: 250.0)),
+          decoration: const PageDecoration(
+            titleTextStyle: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.black54,
+                fontSize: 30.0,
+                fontStyle: FontStyle.italic),
+            bodyTextStyle: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey,
+                fontStyle: FontStyle.italic),
+          ),
+        ),
+        PageViewModel(
+          title: "Reuse",
+          body:
+              "Reusing is the act of taking old items that you might consider throwing away and finding a new use for them.",
+          image: Center(
+              child: Image.asset("assets/images/planet3.jpg", height: 250.0)),
+          decoration: const PageDecoration(
+            titleTextStyle: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.black54,
+                fontSize: 30.0,
+                fontStyle: FontStyle.italic),
+            bodyTextStyle: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey,
+                fontStyle: FontStyle.italic),
+          ),
+        ),
+        PageViewModel(
+          title: "Recycle",
+          body:
+              "This is probably the most well-known and well-understood of the 3 Rs. If you have recycling pick-up services, you will be familiar with recycling paper, plastic and metal materials.",
+          image: Center(
+              child: Image.asset("assets/images/planet4.jpg", height: 250.0)),
+          decoration: const PageDecoration(
+            titleTextStyle: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.black54,
+                fontSize: 30.0,
+                fontStyle: FontStyle.italic),
+            bodyTextStyle: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey,
+                fontStyle: FontStyle.italic),
+          ),
+        ),
+//        PageViewModel(
+//          title: "Reuse",
+//          body:
+//              "Reusing is the act of taking old items that you might consider throwing away and finding a new use for them.",
+//          image: _buildImage(''),
+//          footer: RaisedButton(
+//            onPressed: () {
+//              introKey.currentState?.animateScroll(0);
+//            },
+//            child: const Text(
+//              'FooButton',
+//              style: TextStyle(color: Colors.white),
+//            ),
+//            color: Colors.lightBlue,
+//            shape: RoundedRectangleBorder(
+//              borderRadius: BorderRadius.circular(8.0),
+//            ),
+//          ),
+//          decoration: pageDecoration,
+//        ),
+//        PageViewModel(
+//          title: "Recycle",
+//          bodyWidget: Row(
+//            mainAxisAlignment: MainAxisAlignment.center,
+//            children: const [
+//              Text("Click on ", style: bodyStyle),
+//              Icon(Icons.edit),
+//              Text(" to edit a post", style: bodyStyle),
+//            ],
+//          ),
+//          image: _buildImage('img1'),
+//          decoration: pageDecoration,
+//        ),
       ],
       onDone: () => _onIntroEnd(context),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
       skipFlex: 0,
       nextFlex: 0,
-      skip: const Text('Skip'),
-      next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      skip: const Text('Skip',
+          style: TextStyle(
+            color: Colors.grey,
+          )),
+      next: const Icon(Icons.arrow_forward, color: Colors.grey),
+      done: const Text('Done',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+          )),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),
         activeSize: Size(22.0, 10.0),
         activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(25.0),
+          ),
         ),
       ),
     );
@@ -116,7 +196,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      // appBar: AppBar(title: const Text('Home')),
       body: LoginPage(),
     );
   }
