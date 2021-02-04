@@ -1,5 +1,5 @@
-import 'package:carbonfootprint/Homepage/homepage.dart';
-import 'package:carbonfootprint/Login/login.dart';
+// import 'package:carbonfootprint/Homepage/homepage.dart';
+// import 'package:carbonfootprint/Login/login.dart';
 import 'package:carbonfootprint/Navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:carbonfootprint/Intro/intro.dart';
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Carbon Footprint Tracker',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
