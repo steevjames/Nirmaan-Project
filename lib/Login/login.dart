@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
     return RaisedButton(
       splashColor: Colors.white,
       color: Colors.white,
-      onPressed: () async {
+      onPressed: () {
         signInWithGoogle().then((result) {
           if (result != null) {
             Navigator.of(context).push(
