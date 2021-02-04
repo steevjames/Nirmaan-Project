@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:carbonfootprint/Login/login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingPage extends StatefulWidget {
   @override
@@ -11,20 +10,7 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void checkFirstTime() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firstTime = prefs.getBool('firstTime');
-    if (firstTime == false)
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => Home()),
-      );
-  }
-
   void _onIntroEnd() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    // bool firstTime = prefs.getBool('firstTime');
-    await prefs.setBool('firstTime', false);
-
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => Home()),
     );
@@ -36,12 +22,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   //     alignment: Alignment.bottomCenter,
   //   );
   // }
-
-  @override
-  void initState() {
-    checkFirstTime();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
