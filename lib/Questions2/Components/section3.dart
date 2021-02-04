@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:carbonfootprint/Components/styling.dart';
 
-class Questionnare2 extends StatefulWidget {
+class Questionnare3 extends StatefulWidget {
   final Function submitAction;
   final Color primaryColor;
-  Questionnare2({@required this.submitAction, @required this.primaryColor});
+  Questionnare3({@required this.submitAction, @required this.primaryColor});
   @override
   _QuestionnareState createState() => _QuestionnareState();
 }
 
-class _QuestionnareState extends State<Questionnare2> {
+class _QuestionnareState extends State<Questionnare3> {
   static Map<String, dynamic> responses = {};
 
   static updateVal({key, value}) {
@@ -19,12 +19,12 @@ class _QuestionnareState extends State<Questionnare2> {
 
   List<Map<String, dynamic>> content = [
     {
-      "heading": "New content here (to be added)",
+      "heading": "Page 3 Questions to be added",
       "icon": Icons.house,
       "type": "heading",
     },
     {
-      "question": "Number of people in the household",
+      "question": "Questions have to be changed",
       "type": "number",
       "handleValue": (key, value) {
         updateVal(key: key, value: value);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:carbonfootprint/Login/login.dart';
-import 'package:carbonfootprint/Homepage/homepage.dart';
+// import 'package:carbonfootprint/Homepage/homepage.dart';
 
 class OnBoardingPage extends StatefulWidget {
   @override

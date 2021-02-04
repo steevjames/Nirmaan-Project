@@ -3,7 +3,8 @@ import 'package:carbonfootprint/Components/styling.dart';
 
 class Questionnare1 extends StatefulWidget {
   final Function submitAction;
-  Questionnare1({@required this.submitAction});
+  final Color primaryColor;
+  Questionnare1({@required this.submitAction, @required this.primaryColor});
   @override
   _QuestionnareState createState() => _QuestionnareState();
 }
@@ -32,7 +33,7 @@ class _QuestionnareState extends State<Questionnare1> {
     {
       "question": "Country of residence",
       "type": "dropdown",
-      "options": ["Option 1", "Option 2", "Option 3"],
+      "options": ["Country 1", "Country 2", "Example Country", "Final country"],
       "handleValue": (key, value) {
         updateVal(key: key, value: value);
       },
@@ -91,6 +92,7 @@ class _QuestionnareState extends State<Questionnare1> {
 
   @override
   Widget build(BuildContext context) {
+    Color primaryColor = widget.primaryColor;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Form(
@@ -261,21 +263,29 @@ class _QuestionnareState extends State<Questionnare1> {
                 },
               ) +
               [
+                SizedBox(height: 20),
                 Center(
                   child: RaisedButton(
-                      child: Text("Submit"),
-                      onPressed: () {
-                        // bool isFormValidated = _formKey.currentState.validate();
-                        // print(isFormValidated);
-                        // print(responses.toString());
-                        // if (isFormValidated) {
+                    color: primaryColor,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                    child: Text(
+                      "Submit",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      bool isFormValidated = _formKey.currentState.validate();
+                      print(isFormValidated);
+                      print(responses.toString());
+                      if (isFormValidated) {
                         widget.submitAction(
                           pageData: responses,
                           context: context,
                         );
                       }
-                      // },
-                      ),
+                    },
+                  ),
                 ),
                 SizedBox(height: 50),
               ],
