@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:carbonfootprint/Login/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingPage extends StatefulWidget {
   @override
@@ -10,23 +11,43 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
-    Navigator.of(context).push(
+  void checkFirstTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool firstTime = prefs.getBool('firstTime');
+    if (firstTime == false)
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => Home()),
+      );
+  }
+
+  void _onIntroEnd() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // bool firstTime = prefs.getBool('firstTime');
+    await prefs.setBool('firstTime', false);
+
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => Home()),
     );
   }
 
-  Widget _buildImage(String assetName) {
-    return Align(
-      child: Image.asset('assets/$assetName.jpg', width: 350.0),
-      alignment: Alignment.bottomCenter,
-    );
+  // Widget _buildImage(String assetName) {
+  //   return Align(
+  //     child: Image.asset('assets/$assetName.jpg', width: 350.0),
+  //     alignment: Alignment.bottomCenter,
+  //   );
+  // }
+
+  @override
+  void initState() {
+    checkFirstTime();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 19.0);
+    // const bodyStyle = TextStyle(fontSize: 19.0);
     const pageDecoration = PageDecoration(
+      pageColor: Colors.white,
       titleTextStyle: TextStyle(
         fontWeight: FontWeight.w700,
         color: Color(0xff555555),
@@ -87,7 +108,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           decoration: pageDecoration,
         ),
       ],
-      onDone: () => _onIntroEnd(context),
+      onDone: () => _onIntroEnd(),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
       skipFlex: 0,

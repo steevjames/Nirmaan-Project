@@ -79,8 +79,8 @@ class _QuestionnarePageState extends State<QuestionnarePage> {
       backgroundColor: Colors.white,
       appBar: zeroHeightAppbar(color: colors[pageIndex]),
       body: WillPopScope(
-        onWillPop: () {
-          showDialog(
+        onWillPop: () async {
+          await showDialog(
             context: context,
             builder: (context) => new AlertDialog(
               // title: Text('Exit calculator ?'),
@@ -122,6 +122,7 @@ class _QuestionnarePageState extends State<QuestionnarePage> {
               ],
             ),
           );
+          return false;
         },
         child: SingleChildScrollView(
           controller: _scrollController,
