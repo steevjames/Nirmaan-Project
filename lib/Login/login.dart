@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +28,16 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               // Image(image: AssetImage("assets/images/logocover.jpeg")),
               Image(
-                  image: AssetImage("assets/images/bluelogin1.jpg"),
-                  height: 350.0),
+                image: AssetImage("assets/images/bluelogin1.jpg"),
+                height: 320.0,
+              ),
               SizedBox(height: 10),
-              _signInButton(),
+              isLoading
+                  ? CircularProgressIndicator(
+                      backgroundColor: Colors.blue,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    )
+                  : _signInButton(),
             ],
           ),
         ),
@@ -39,10 +46,16 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _signInButton() {
-    return OutlineButton(
-      splashColor: Colors.grey,
-      onPressed: () {
-        signInWithGoogle().then((result) {
+    return RaisedButton(
+      splashColor: Colors.white,
+      color: Colors.white,
+      onPressed: () async {
+        setState(() {
+          isLoading = true;
+        });
+        try {
+          var result = await signInWithGoogle();
+          print(result);
           if (result != null) {
             Navigator.of(context).push(
               MaterialPageRoute(
@@ -52,13 +65,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
             );
           }
-        });
+        } catch (_) {
+          print("Login failed");
+          setState(() {
+            isLoading = false;
+          });
+        }
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,
-      borderSide: BorderSide(color: Colors.grey),
+      // borderSide: BorderSide(color: Colors.grey),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Text(
                 'Sign in with Google',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 16,
                   color: Colors.grey,
                 ),
               ),
