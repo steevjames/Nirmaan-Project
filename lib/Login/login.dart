@@ -1,13 +1,13 @@
-import 'dart:async';
-import 'dart:convert' show json;
+// import 'dart:async';
+// import 'dart:convert' show json;
 import 'package:carbonfootprint/Navigation/navigation.dart';
-import "package:http/http.dart" as http;
+// import "package:http/http.dart" as http;
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'animation.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'animation.dart';
 import 'authentication.dart';
-import 'package:carbonfootprint/Homepage/homepage.dart';
+// import 'package:carbonfootprint/Homepage/homepage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
