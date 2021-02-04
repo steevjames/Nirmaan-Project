@@ -75,7 +75,7 @@ class _QuestionnareState extends State<Questionnare1> {
     {
       "question": "Heating energy source",
       "type": "dropdown",
-      "options": ["Option 1", "Option 2", "Option 3"],
+      "options": ["Coal", "Natural Gas", "Wood", "Electricity", "No Heating"],
       "handleValue": (key, value) {
         updateVal(key: key, value: value);
       },
