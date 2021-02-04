@@ -32,12 +32,8 @@ class _LoginPageState extends State<LoginPage> {
                 height: 320.0,
               ),
               SizedBox(height: 10),
-              isLoading
-                  ? CircularProgressIndicator(
-                      backgroundColor: Colors.blue,
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    )
-                  : _signInButton(),
+
+              _signInButton(),
             ],
           ),
         ),
@@ -50,12 +46,7 @@ class _LoginPageState extends State<LoginPage> {
       splashColor: Colors.white,
       color: Colors.white,
       onPressed: () async {
-        setState(() {
-          isLoading = true;
-        });
-        try {
-          var result = await signInWithGoogle();
-          print(result);
+        signInWithGoogle().then((result) {
           if (result != null) {
             Navigator.of(context).push(
               MaterialPageRoute(
@@ -65,12 +56,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             );
           }
-        } catch (_) {
-          print("Login failed");
-          setState(() {
-            isLoading = false;
-          });
-        }
+        });
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,
