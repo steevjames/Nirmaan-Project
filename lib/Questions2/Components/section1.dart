@@ -263,19 +263,19 @@ class _QuestionnareState extends State<Questionnare1> {
               [
                 Center(
                   child: RaisedButton(
-                    child: Text("Submit"),
-                    onPressed: () {
-                      bool isFormValidated = _formKey.currentState.validate();
-                      print(isFormValidated);
-                      print(responses.toString());
-                      if (isFormValidated) {
+                      child: Text("Submit"),
+                      onPressed: () {
+                        // bool isFormValidated = _formKey.currentState.validate();
+                        // print(isFormValidated);
+                        // print(responses.toString());
+                        // if (isFormValidated) {
                         widget.submitAction(
                           pageData: responses,
                           context: context,
                         );
                       }
-                    },
-                  ),
+                      // },
+                      ),
                 ),
                 SizedBox(height: 50),
               ],

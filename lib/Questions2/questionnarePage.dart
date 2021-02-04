@@ -19,9 +19,22 @@ class _QuestionnarePageState extends State<QuestionnarePage> {
   // Asign pages in init state
   List<Widget> pageBodies;
 
+  bool isLoading = false;
+
+  load() async {
+    setState(() {
+      isLoading = true;
+    });
+    await Future.delayed(Duration(milliseconds: 500));
+    setState(() {
+      isLoading = false;
+    });
+  }
+
   manageSubmission({@required pageData, @required context}) {
     collectedData[headings[pageIndex]] = pageData;
     print(collectedData);
+    load();
     setState(() {
       if (pageIndex == 1) {
         alertDialog(
@@ -74,7 +87,7 @@ class _QuestionnarePageState extends State<QuestionnarePage> {
                     ),
                     Center(
                       child: Text(
-                        headings[pageIndex],
+                        isLoading ? " " : headings[pageIndex],
                         style: TextStyle(color: Colors.white, fontSize: 27),
                         textAlign: TextAlign.center,
                       ),
@@ -100,7 +113,17 @@ class _QuestionnarePageState extends State<QuestionnarePage> {
                       topRight: Radius.circular(35),
                     ),
                   ),
-                  child: pageBodies[pageIndex],
+                  child: isLoading
+                      ? Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 50),
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(primaryColor),
+                            ),
+                          ),
+                        )
+                      : pageBodies[pageIndex],
                 ),
               ],
             ),
