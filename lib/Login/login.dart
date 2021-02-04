@@ -32,7 +32,12 @@ class _LoginPageState extends State<LoginPage> {
                 height: 320.0,
               ),
               SizedBox(height: 10),
-              isLoading ? CircularProgressIndicator() : _signInButton(),
+              isLoading
+                  ? CircularProgressIndicator(
+                      backgroundColor: Colors.blue,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    )
+                  : _signInButton(),
             ],
           ),
         ),
