@@ -1,3 +1,4 @@
+import 'package:carbonfootprint/Components/styling.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:carbonfootprint/Login/login.dart';
@@ -34,10 +35,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         fontSize: 25.0,
         // fontStyle: FontStyle.italic,
       ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 15),
       bodyTextStyle: TextStyle(
-        fontSize: 18.0,
+        fontSize: 16.0,
         color: Colors.grey,
-        fontStyle: FontStyle.italic,
+        fontStyle: FontStyle.normal,
       ),
     );
 
@@ -45,9 +47,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       key: introKey,
       pages: [
         PageViewModel(
-          title: "Carbon Footprint",
+          title: "Welcome",
           body:
-              "A carbon footprint is the amount of greenhouse gases—primarily carbon dioxide—released into the atmosphere by a particular human activity. ",
+              "A carbon footprint is a measure of the amount of greenhouse gases released into the atmosphere by human activities.\n\n  Abnormal increase of greenhouses gases are causing unpredictable climate changes and natural disasters, which is why we have to act while we still have the chance.",
           image: Center(
             child: Image.asset("assets/images/global.jpg", height: 200.0),
           ),
@@ -55,36 +57,54 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "The 3 R's",
+          title: "What can we do ?",
           body:
-              "Reduce, Reuse, Recycle – these three 'R' words are an important part of sustainable living, as they help to cut down on the amount of waste we have to throw away.",
+              "The 3 R's\n\nReduce, Reuse, Recycle – these three 'R' words are an important part of sustainable living, as they help to cut down on the amount of waste we have to throw away.",
           image: Center(
               child: Image.asset("assets/images/planet5.jpg", height: 200.0)),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Reduce",
-          body:
-              "Reducing what is produced and what is consumed is essential to the best hierarchy. The logic behind it is simple to understand – if there is less waste, then there is less to recycle and reuse.",
+          title: "Let's Get Started",
+          bodyWidget: Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Text(
+                  "Reducing what is produced and what is consumed is essential to the best hierarchy. The logic behind it is simple to understand – if there is less waste, then there is less to recycle and reuse.",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.grey,
+                    fontStyle: FontStyle.normal,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  _onIntroEnd();
+                },
+                child: Text("Lets get started !"),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    primaryColor,
+                  ),
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  ),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
           image: Center(
               child: Image.asset("assets/images/planet1.jpg", height: 200.0)),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Reuse",
-          body:
-              "Reusing is the act of taking old items that you might consider throwing away and finding a new use for them.",
-          image: Center(
-              child: Image.asset("assets/images/planet3.jpg", height: 200.0)),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Recycle",
-          body:
-              "This is probably the most well-known and well-understood of the 3 Rs. If you have recycling pick-up services, you will be familiar with recycling paper, plastic and metal materials.",
-          image: Center(
-            child: Image.asset("assets/images/planet4.jpg", height: 200.0),
-          ),
           decoration: pageDecoration,
         ),
       ],
@@ -101,7 +121,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         Icons.arrow_forward,
         color: Color(0xff004c48),
       ),
-      done: const Text('Done',
+      done: const Text('',
           style: TextStyle(
             fontWeight: FontWeight.w600,
           )),
