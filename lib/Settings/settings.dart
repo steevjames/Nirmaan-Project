@@ -1,3 +1,4 @@
+import 'package:carbonfootprint/Login/login.dart';
 import 'package:carbonfootprint/Settings/Components/settingCard.dart';
 import 'package:flutter/material.dart';
 import 'package:carbonfootprint/Components/styling.dart';
@@ -64,6 +65,52 @@ class Settings extends StatelessWidget {
 }
 
 class BottomPart extends StatelessWidget {
+  logOutConfirmation(context) async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Do you want to Logout ?',
+            style: TextStyle(fontSize: 16, color: primaryColor),
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          actions: <Widget>[
+            TextButton(
+              child: Text(
+                "Yes",
+                style: TextStyle(fontSize: 14.5, color: primaryColor),
+              ),
+              onPressed: () {
+                // Logout
+
+                signOutGoogle();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginPage(autoLogin: false);
+                    },
+                  ),
+                );
+              },
+            ),
+            TextButton(
+              child: Text(
+                "Cancel",
+                style: TextStyle(fontSize: 14.5, color: primaryColor),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -81,7 +128,7 @@ class BottomPart extends StatelessWidget {
             onClick: () {},
           ),
           SettingOption(
-            optionName: "Change Default",
+            optionName: "Anathor option",
             icon: Icons.edit,
             onClick: () {},
           ),
@@ -89,7 +136,7 @@ class BottomPart extends StatelessWidget {
             optionName: "Logout",
             icon: Icons.logout,
             onClick: () {
-              signOutGoogle();
+              logOutConfirmation(context);
             },
           ),
         ],
