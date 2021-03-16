@@ -163,16 +163,23 @@ class _QuestionState extends State<Question> {
                         ) +
                         [
                           SizedBox(height: 20),
-                          RaisedButton(
-                            color: Colors.white,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 50,
-                              vertical: 12,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(
-                                color: primaryColor,
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.white),
+                              padding: MaterialStateProperty.all(
+                                EdgeInsets.symmetric(
+                                  horizontal: 50,
+                                  vertical: 12,
+                                ),
+                              ),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(
+                                    color: primaryColor,
+                                  ),
+                                ),
                               ),
                             ),
                             child: Text(

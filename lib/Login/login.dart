@@ -42,9 +42,16 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _signInButton() {
-    return RaisedButton(
-      splashColor: Colors.white,
-      color: Colors.white,
+    return ElevatedButton(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(Colors.white),
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+          ),
+        ),
+      ),
       onPressed: () {
         signInWithGoogle().then((result) {
           if (result != null) {
@@ -58,8 +65,6 @@ class _LoginPageState extends State<LoginPage> {
           }
         });
       },
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-      highlightElevation: 0,
       // borderSide: BorderSide(color: Colors.grey),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),

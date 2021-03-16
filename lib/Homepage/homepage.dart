@@ -96,22 +96,28 @@ class BottomPart extends StatelessWidget {
           generateFoot(context),
           SizedBox(height: 25),
           Center(
-            child: RaisedButton(
+            child: ElevatedButton(
               child: Text(
                 "Take Questionnare",
                 style: TextStyle(
                   color: textColor,
                 ),
               ),
-              color: Colors.white,
-              padding: EdgeInsets.symmetric(
-                horizontal: 50,
-                vertical: 12,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0),
-                side: BorderSide(
-                  color: primaryColor,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 12,
+                  ),
+                ),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(
+                      color: primaryColor,
+                    ),
+                  ),
                 ),
               ),
               onPressed: () {
