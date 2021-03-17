@@ -7,6 +7,7 @@ zeroHeightAppbar({Color color}) {
     preferredSize: Size.fromHeight(0.0),
     child: AppBar(
       backgroundColor: color ?? primaryColor,
+      brightness: Brightness.dark,
     ),
   );
 }

@@ -1,4 +1,5 @@
 import 'package:carbonfootprint/Components/styling.dart';
+import 'package:carbonfootprint/Navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:carbonfootprint/Login/login.dart';
@@ -12,10 +13,16 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
   Future firstTime;
+  Future isLoggedin;
 
   checkFirstTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt('firstTime') ?? 1;
+  }
+
+  checkLoggedIn() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('userDetails') ?? false;
   }
 
   void _onIntroEnd() async {
@@ -29,6 +36,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   void initState() {
+    isLoggedin = checkLoggedIn() ?? false;
     firstTime = checkFirstTime();
     super.initState();
   }
@@ -56,9 +64,27 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       future: firstTime,
       builder: (context, snapshot) {
         if (!snapshot.hasData)
-          return CircularProgressIndicator();
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
         else if (snapshot.data != 1)
-          return LoginPage();
+          return FutureBuilder(
+            future: isLoggedin,
+            builder: (context, snapshot) {
+              if (!snapshot.hasData)
+                return Scaffold(
+                  body: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              else if (snapshot.data == false)
+                return LoginPage();
+              else
+                return NavigationBar();
+            },
+          );
         else
           return IntroductionScreen(
             key: introKey,

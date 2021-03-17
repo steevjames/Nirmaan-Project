@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:carbonfootprint/Components/alertDialog.dart';
 import 'package:carbonfootprint/Navigation/navigation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'authentication.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,9 +22,18 @@ class _LoginPageState extends State<LoginPage> {
       isLoading = true;
     });
     try {
-      var result = await signInWithGoogle();
+      User result = await signInWithGoogle();
       if (result != null) {
-        Navigator.of(context).push(
+        Map<String, dynamic> userDetails = {
+          "name": result.displayName,
+          "email": result.email,
+          "phone": result.phoneNumber,
+          "photo": result.photoURL
+        };
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('userDetails', jsonEncode(userDetails));
+        while (Navigator.canPop(context)) Navigator.pop(context);
+        Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) {
               return NavigationBar();
@@ -28,7 +41,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
       }
-    } catch (_) {
+    } catch (e) {
+      print("error $e");
       setState(() {
         isLoading = false;
       });
