@@ -100,7 +100,7 @@ class _QuestionnarePageState extends State<QuestionnarePage> {
               ),
 
               actions: <Widget>[
-                FlatButton(
+                TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pop();
@@ -110,7 +110,7 @@ class _QuestionnarePageState extends State<QuestionnarePage> {
                     style: TextStyle(color: primaryColor),
                   ),
                 ),
-                FlatButton(
+                TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },

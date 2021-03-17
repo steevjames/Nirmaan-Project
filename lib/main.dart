@@ -8,6 +8,8 @@ void main() {
   runApp(MyApp());
 }
 
+// SharedPreferences prefs = await SharedPreferences.getInstance();
+// int firstTime = prefs.getInt('firstTime') ;
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

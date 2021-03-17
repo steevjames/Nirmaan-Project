@@ -265,11 +265,18 @@ class _QuestionnareState extends State<Questionnare3> {
               [
                 SizedBox(height: 20),
                 Center(
-                  child: RaisedButton(
-                    color: primaryColor,
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(primaryColor),
+                      padding: MaterialStateProperty.all(
+                        EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0))),
+                      ),
+                    ),
                     child: Text(
                       "Submit",
                       style: TextStyle(color: Colors.white),
@@ -280,7 +287,9 @@ class _QuestionnareState extends State<Questionnare3> {
                       print(responses.toString());
                       if (isFormValidated) {
                         widget.submitAction(
-                            pageData: responses, context: context);
+                          pageData: responses,
+                          context: context,
+                        );
                       }
                     },
                   ),
