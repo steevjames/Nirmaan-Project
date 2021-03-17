@@ -48,8 +48,8 @@ class _NavigationBarState extends State<NavigationBar> {
             label: 'Leaderboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
